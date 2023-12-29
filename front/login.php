@@ -18,30 +18,28 @@
   </table>
 </fieldset>
 <script>
-function login() {
-  $.post('./api/check_acc.php', {
-    acc: $("#acc").val()
-  }, (res) => {
-    if (+res == 0) {
-      alert("查無帳號")
-    } else {
-      $.post('./api/check_pw.php', {
-        acc: $("#acc").val(),
-        pw: $("#pw").val()
-      }, (res) => {
-        if (+res == 1) {
-          if ($("#acc").val() == "admin") {
-            console.log("123")
-            location.href = "back.php";
+  function login() {
+    $.post('./api/check_acc.php', {
+      acc: $("#acc").val()
+    }, (res) => {
+      if (parseInt(res) == 0) {
+        alert("查無帳號")
+      } else {
+        $.post('./api/check_pw.php', {
+          acc: $("#acc").val(),
+          pw: $("#pw").val()
+        }, (res) => {
+          if (parseInt(res) == 1) {
+            if ($("#acc").val() == 'admin') {
+              location.href = 'back.php'
+            } else {
+              location.href = 'index.php'
+            }
           } else {
-            location.href = "index.php"
+            alert("密碼錯誤")
           }
-        } else {
-          alert("密碼錯誤")
-        }
-      })
-    }
-
-  })
-}
+        })
+      }
+    })
+  }
 </script>
