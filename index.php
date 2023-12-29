@@ -2,7 +2,8 @@
 include_once "./api/db.php";
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -16,7 +17,8 @@ include_once "./api/db.php";
 </head>
 
 <body>
-  <div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
+  <div id="alerr"
+    style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
     <pre id="ssaa"></pre>
   </div>
   <!-- 可直接刪掉 -->
@@ -45,6 +47,16 @@ include_once "./api/db.php";
           <span style="width:20%; display:inline-block;">
             <a href="?do=login">會員登入</a>
           </span>
+          <?php
+            $do = $_GET['do']??'main';
+            $file = "./front/{$do}.php";
+            if(file_exists($file)){
+              include $file;
+            }else {
+              include "./front/main.php";
+            }
+
+?>
           <div class="">
           </div>
         </div>
