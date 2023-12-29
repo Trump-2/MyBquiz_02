@@ -43,7 +43,7 @@ function reg() {
         acc: user.acc // 把帳號送到後端
       }, (res) => {
         console.log(res) // 到後端的資料庫去檢查帳號是否重複
-        if (+res === 1) {
+        if (+res == 1) {
           alert("帳號重複")
         } else {
 
