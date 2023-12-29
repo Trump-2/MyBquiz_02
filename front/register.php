@@ -46,11 +46,10 @@ function reg() {
         if (+res == 1) {
           alert("帳號重複")
         } else {
-          $.post("./api/register.php", {
-            user
-          }, (res) => {
-            alert("註冊完成，歡迎加入")
-          })
+          $.post("./api/register.php",
+            user, (res) => {
+              alert("註冊完成，歡迎加入")
+            })
         }
       })
     } else {
