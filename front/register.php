@@ -28,13 +28,23 @@
  </fieldset>
 
  <script>
-function reg() {
-  let user = {
-    acc: $("#acc").val(),
-    pw: $("#pw").val(),
-    pw2: $("#pw2").val(),
-    email: $("#email").val()
-  }
-  console.log(user)
-}
+   function reg() {
+     let user = {
+       acc: $("#acc").val(),
+       pw: $("#pw").val(),
+       pw2: $("#pw2").val(),
+       email: $("#email").val()
+     }
+
+     if (user.acc != '' && user.pw != '' && user.pw2 != '' && user.email != '') { // 處理空白問題
+       if (user.pw === user.pw2) { // 處理密碼錯誤問題
+
+       } else {
+         alert("密碼錯誤")
+       }
+     } else {
+       alert("不可空白")
+     }
+     // console.log(user)
+   }
  </script>
