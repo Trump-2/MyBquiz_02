@@ -19,7 +19,8 @@
        <td><input type="text" name="email" id="email"></td>
      </tr>
      <tr>
-       <td><input type="submit" value="註冊" onclick="reg()">
+       <td>
+         <input type="button" value="註冊" onclick="reg()">
          <input type="reset" value="清除">
        </td>
        <td></td>
@@ -28,23 +29,32 @@
  </fieldset>
 
  <script>
-   function reg() {
-     let user = {
-       acc: $("#acc").val(),
-       pw: $("#pw").val(),
-       pw2: $("#pw2").val(),
-       email: $("#email").val()
-     }
+function reg() {
+  let user = {
+    acc: $("#acc").val(),
+    pw: $("#pw").val(),
+    pw2: $("#pw2").val(),
+    email: $("#email").val()
+  }
 
-     if (user.acc != '' && user.pw != '' && user.pw2 != '' && user.email != '') { // 處理空白問題
-       if (user.pw === user.pw2) { // 處理密碼錯誤問題
+  if (user.acc != '' && user.pw != '' && user.pw2 != '' && user.email != '') { // 處理空白問題
+    if (user.pw === user.pw2) { // 處理密碼錯誤問題
+      $.post("./api/check_acc.php", { // $.get()、$.post()會影響是使用 $_GET 或 $_POST
+        acc: user.acc // 把帳號送到後端
+      }, (res) => {
+        console.log(res) // 到後端的資料庫去檢查帳號是否重複
+        if (+res === 1) {
+          alert("帳號重複")
+        } else {
 
-       } else {
-         alert("密碼錯誤")
-       }
-     } else {
-       alert("不可空白")
-     }
-     // console.log(user)
-   }
+        }
+      })
+    } else {
+      alert("密碼錯誤")
+    }
+  } else {
+    alert("不可空白")
+  }
+  // console.log(user)
+}
  </script>
