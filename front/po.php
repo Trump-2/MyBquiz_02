@@ -30,7 +30,7 @@
   <div class="list-items">
 
   </div>
-  <div class="article"></div>
+  <div class="article" style="display:none"></div>
 </fieldset>
 
 <script>
@@ -47,6 +47,8 @@
       type
     }, (list) => {
       $(".list-items").html(list);
+      $(".article").hide()
+      $(".list-items").show()
     })
   }
 
@@ -55,6 +57,8 @@
       id
     }, (news) => {
       $(".article").text(news)
+      $(".list-items").hide()
+      $(".article").show()
     })
 
 
