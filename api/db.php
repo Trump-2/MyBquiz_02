@@ -271,6 +271,7 @@ function to($url)
 $Total = new DB('total');
 $User = new DB('user');
 $News = new DB('news');
+$Que = new DB('que');
 
 if (!isset($_SESSION['visited'])) {
   // 判斷今日日期的資料是否存在
