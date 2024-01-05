@@ -8,7 +8,7 @@
 
     <div>
       <div id="opt">選項
-        <input type="text" name="option">
+        <input type="text" name="option[]">
         <input type="button" value="更多" onclick="more()">
       </div>
 
@@ -23,7 +23,7 @@
   function more() {
     let opt =
       `<div id="opt">選項
-      <input type="text" name="option">
+      <input type="text" name="option[]">
     </div>`
 
     $("#opt").before(opt);
