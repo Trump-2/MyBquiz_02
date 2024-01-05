@@ -6,6 +6,11 @@
 
   fieldset {
     display: inline-block;
+    vertical-align: top;
+  }
+
+  .new-list {
+    width: 600px;
   }
 </style>
 
@@ -20,7 +25,7 @@
   <a class="type-item">慢性病防治</a>
 </fieldset>
 
-<fieldset>
+<fieldset class="new-list">
   <legend>文章列表</legend>
   <div class="list-items"></div>
   <div class="article"></div>
