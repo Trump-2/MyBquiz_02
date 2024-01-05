@@ -8,6 +8,7 @@
     /* background-color: green; */
     border-radius: 5px 5px 0 0;
     text-align: center;
+    background-color: lightgrey;
   }
 
   .tags {
@@ -31,6 +32,7 @@
   .active {
     /* 蓋過內容區的 border */
     border-bottom: 1px solid white;
+    background-color: white;
   }
 </style>
 <div class="tags">
