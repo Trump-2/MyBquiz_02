@@ -30,14 +30,13 @@
         </td>
         <td>
           <span id="g<?= $row['id'] ?>"><?= $row['good'] ?></span>個人說<img src="./icon/02B03.jpg" alt="" style="width:25px">
-        </td>
-        <td>
           <?php
           if (isset($_SESSION['user'])) {
-            if ($Log->count(['news' => $row['id'], 'acc' => $_SESSION['user']]))
+            if ($Log->count(['news_id' => $row['id'], 'acc' => $_SESSION['user']])) {
               echo "<a href= ''>收回讚</a>";
-          } else {
-            echo "<a href= ''>讚</a>";
+            } else {
+              echo "<a href= ''>讚</a>";
+            }
           }
           ?>
         </td>
