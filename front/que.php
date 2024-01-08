@@ -11,19 +11,19 @@
     </tr>
 
     <?php
-    $ques = $Que->all(['subject_id => 0']);
+    $ques = $Que->all(['subject_id' => 0]);
     foreach ($ques as $key => $que) {
 
     ?>
-    <tr>
-      <td><?= $key + 1 ?></td>
-      <td><?= $que['text'] ?></td>
-      <td><?= $que['vote'] ?></td>
-      <td>
-        <a href="?do=result&id=<?= $que['id'] ?>">結果</a>
-      </td>
-      <td>
-        <?php
+      <tr>
+        <td><?= $key + 1 ?></td>
+        <td><?= $que['text'] ?></td>
+        <td><?= $que['vote'] ?></td>
+        <td>
+          <a href="?do=result&id=<?= $que['id'] ?>">結果</a>
+        </td>
+        <td>
+          <?php
           if (isset($_SESSION['user'])) {
             echo "<a href='?do=vote&id={$que['id']}'>參與投票</a>";
           } else {
@@ -31,8 +31,8 @@
           }
 
           ?>
-      </td>
-    </tr>
+        </td>
+      </tr>
 
     <?php
 
