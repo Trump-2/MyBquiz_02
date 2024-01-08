@@ -1,17 +1,17 @@
 <style>
-  .type-item {
-    display: block;
-    margin: 3px 6px;
-  }
+.type-item {
+  display: block;
+  margin: 3px 6px;
+}
 
-  fieldset {
-    display: inline-block;
-    vertical-align: top;
-  }
+fieldset {
+  display: inline-block;
+  vertical-align: top;
+}
 
-  .new-list {
-    width: 600px;
-  }
+.new-list {
+  width: 600px;
+}
 </style>
 
 <div class="nav">目前位置:首頁 > 分類網誌 > <span class="type">健康新知</span> </div>
@@ -27,44 +27,44 @@
 
 <fieldset class="new-list">
   <legend>文章列表</legend>
-  <div class="list-items" style="display:none"></div>
-  <div class="article"></div>
+  <div class="list-items"></div>
+  <div class="article" style="display:none"></div>
 </fieldset>
 
 <script>
-  getList(1)
-  $(".type-item").on('click', function() {
-    $('.type').text($(this).text());
-    let type = $(this).data('id');
-    getList(type);
+getList(1)
+$(".type-item").on('click', function() {
+  $('.type').text($(this).text());
+  let type = $(this).data('id');
+  getList(type);
 
+})
+
+function getList(type) {
+  $.get("./api/get_list.php", {
+    type
+  }, (list) => {
+    $(".list-items").html(list);
+    $(".article").hide()
+    $(".list-items").show()
+
+    // 跟上面一樣
+    // $(".article,.list-items").toggle();
+  })
+}
+
+function getNews(id) {
+  $.get("./api/get_news.php", {
+    id
+  }, (news) => {
+    $(".article").text(news)
+    $(".list-items").hide()
+    $(".article").show()
+
+    // 跟上面一樣
+    // $(".article,.list-items").toggle();
   })
 
-  function getList(type) {
-    $.get("./api/get_list.php", {
-      type
-    }, (list) => {
-      $(".list-items").html(list);
-      // $(".article").hide()
-      // $(".list-items").show()
 
-      // 跟上面一樣
-      $(".article,.list-items").toggle();
-    })
-  }
-
-  function getNews(id) {
-    $.get("./api/get_news.php", {
-      id
-    }, (news) => {
-      $(".article").text(news)
-      // $(".list-items").hide()
-      // $(".article").show()
-
-      // 跟上面一樣
-      $(".article,.list-items").toggle();
-    })
-
-
-  }
+}
 </script>
