@@ -17,30 +17,31 @@
     foreach ($rows as $row) {
 
     ?>
-      <tr>
-        <td>
-          <div class="title" data-id="<?= $row['id'] ?>"><?= $row['title'] ?></div>
-        </td>
-        <td>
-          <div><?= mb_substr($row['news'], 0, 25) ?> ...</div>
-          <div id="p<?= $row['id'] ?>" class="pop">
-            <h3 style="color:skyblue"><?= $row['title'] ?></h3>
-            <pre><?= $row['news'] ?></pre>
-          </div>
-        </td>
-        <td>
-          <span id="g<?= $row['id'] ?>"><?= $row['good'] ?></span>個人說<img src="./icon/02B03.jpg" alt="" style="width:25px">
-          <?php
+    <tr>
+      <td>
+        <div class="title" data-id="<?= $row['id'] ?>"><?= $row['title'] ?></div>
+      </td>
+      <td>
+        <div><?= mb_substr($row['news'], 0, 25) ?> ...</div>
+        <div id="p<?= $row['id'] ?>" class="pop">
+          <h3 style="color:skyblue"><?= $row['title'] ?></h3>
+          <pre><?= $row['news'] ?></pre>
+        </div>
+      </td>
+      <td>
+        <span id="g<?= $row['id'] ?>"><?= $row['good'] ?></span>個人說<img src="./icon/02B03.jpg" alt=""
+          style="width:25px">
+        <?php
           if (isset($_SESSION['user'])) {
             if ($Log->count(['news_id' => $row['id'], 'acc' => $_SESSION['user']])) {
-              echo "<a href= 'javascript:good({$row['id']})'>收回讚</a>";
+              echo "<a id='n{$row['id']}' href= 'javascript:good({$row['id']})'>收回讚</a>";
             } else {
-              echo "<a href= 'javascript:good({$row['id']})'>讚</a>";
+              echo "<a id='n{$row['id']}' href= 'javascript:good({$row['id']})'>讚</a>";
             }
           }
           ?>
-        </td>
-      </tr>
+      </td>
+    </tr>
 
     <?php
 
@@ -74,21 +75,21 @@
 
 </fieldset>
 <script>
-  $(".title").hover(
-    // 第一個 function滑鼠移入時會執行的
-    function() {
-      // 先全部隱藏
-      $(".pop").hide();
-      let id = $(this).data('id');
+$(".title").hover(
+  // 第一個 function滑鼠移入時會執行的
+  function() {
+    // 先全部隱藏
+    $(".pop").hide();
+    let id = $(this).data('id');
 
-      // 顯示出對應的彈出視窗文章內容
-      $(`#p${id}`).show();
-    },
+    // 顯示出對應的彈出視窗文章內容
+    $(`#p${id}`).show();
+  },
 
-    // 第一個 function滑鼠離開時會執行的
-    function() {
+  // 第一個 function滑鼠離開時會執行的
+  function() {
 
-    }
+  }
 
-  )
+)
 </script>
