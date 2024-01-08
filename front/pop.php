@@ -18,8 +18,16 @@
 
     ?>
       <tr>
-        <td><?= $row['title'] ?></td>
-        <td><?= mb_substr($row['news'], 0, 25) ?> ...</td>
+        <td>
+          <div class="title" data-id="<?= $row['id'] ?>"><?= $row['title'] ?></div>
+        </td>
+        <td>
+          <div><?= mb_substr($row['news'], 0, 25) ?> ...</div>
+          <div id="p<?= $row['id'] ?>" class="pop">
+            <h3 style="color:skyblue"><?= $row['title'] ?></h3>
+            <pre><?= $row['news'] ?></pre>
+          </div>
+        </td>
         <td></td>
       </tr>
 
@@ -54,3 +62,17 @@
 
 
 </fieldset>
+<script>
+  $(".title").hover(
+    function() {
+      // 先全部隱藏
+      $(".pop").hide();
+      let id = $(this).data('id');
+
+      // 顯示出對應的彈出視窗文章內容
+      $(`#p${id}`).show();
+    }
+
+
+  )
+</script>

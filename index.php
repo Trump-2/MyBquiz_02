@@ -14,13 +14,24 @@ include_once "./api/db.php";
   <link href="./css/css.css" rel="stylesheet" type="text/css">
   <script src="./js/jquery-1.9.1.min.js"></script>
   <script src="./js/js.js"></script>
+
+  <style>
+  .pop {
+    background: rgba(51, 51, 51, 0.8);
+    color: #FFF;
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    display: none;
+    z-index: 9999;
+    overflow: auto;
+    padding: 10px;
+  }
+  </style>
 </head>
 
 <body>
-  <div id="alerr"
-    style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
-    <pre id="ssaa"></pre>
-  </div>
+
   <!-- 可直接刪掉 -->
   <!-- <iframe name="back" style="display:none;"></iframe> -->
   <div id="all">
