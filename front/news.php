@@ -17,11 +17,11 @@
     foreach ($rows as $row) {
 
     ?>
-      <tr>
-        <td><?= $row['title'] ?></td>
-        <td><?= mb_substr($row['news'], 0, 25) ?> ...</td>
-        <td></td>
-      </tr>
+    <tr>
+      <td><?= $row['title'] ?></td>
+      <td><?= mb_substr($row['news'], 0, 25) ?> ...</td>
+      <td></td>
+    </tr>
 
     <?php
 
@@ -40,12 +40,12 @@
 
     for ($i = 1; $i <= $pages; $i++) {
       $fontsize = ($i == $now) ? '24px' : '16px';
-      echo "<a href='?do=pop&p=$i' style='font-size:$fontsize'> $i </a>";
+      echo "<a href='?do=news&p=$i' style='font-size:$fontsize'> $i </a>";
     }
 
     if ($now + 1 <= $pages) {
       $next = $now + 1;
-      echo "<a href='?do=pop&p=$next'> > </a>";
+      echo "<a href='?do=news&p=$next'> > </a>";
     }
 
 
