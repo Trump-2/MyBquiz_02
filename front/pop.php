@@ -13,7 +13,7 @@
     $pages = ceil($total / $div);
     $start = ($now - 1) * $div;
 
-    $rows = $News->all(['sh' => 1], " order by `good` desc limit $start,$div"); // 由按讚數排序，由大到小排序
+    $rows = $News->all(['sh' => 1], " order by `good` desc limit $start,$div"); //  由按讚數排序，由大到小排序；和 limit 搭配使用時，要先排序再使用 limit
     foreach ($rows as $row) {
 
     ?>
