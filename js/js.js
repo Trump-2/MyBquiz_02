@@ -11,17 +11,5 @@ function good(newsId) {
     newsId
   }, () => {
     location.reload();
-
-		// 另一種寫法，但比較複雜、慢
-		// switch($("").text()) {
-		// 	case "讚" :
-		// 		$(`#n${newsId}`).text("收回讚")
-		// 		$(`#g${newsId}`).text($(`#g${newsId}`).text() * 1 + 1)
-		// 	break;
-		// 	case "收回讚" :
-		// 		$(`#n${newsId}`).text("讚")
-		// 		$(`#g${newsId}`).text($(`#g${newsId}`).text() * 1 - 1)
-		// 	break;
-		// }
   })
 }
