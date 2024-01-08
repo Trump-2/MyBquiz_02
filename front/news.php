@@ -27,7 +27,16 @@
         <div id="s<?= $row['id'] ?>"><?= mb_substr($row['news'], 0, 25) ?> ...</div>
         <div id="a<?= $row['id'] ?>" style="display:none"><?= $row['news'] ?></div>
       </td>
-      <td></td>
+      <td>
+        <?php
+          if (isset($_SESSION['user'])) {
+            if ($Log->count(['news' => $row['id'], 'acc' => $_SESSION['user']]))
+              echo "<a href= ''>收回讚</a>";
+          } else {
+            echo "<a href= ''>讚</a>";
+          }
+          ?>
+      </td>
     </tr>
 
     <?php
