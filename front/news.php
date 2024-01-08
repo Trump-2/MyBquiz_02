@@ -77,13 +77,4 @@
     let id = $(e.target).data('id');
     $(`#s${id},#a${id}`).toggle();
   })
-
-
-  function good(newsId) {
-    $.post("./api/good.php", {
-      newsId
-    }, () => {
-      location.reload();
-    })
-  }
 </script>

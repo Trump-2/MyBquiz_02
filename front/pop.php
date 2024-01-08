@@ -92,13 +92,4 @@ $(".title").hover(
   }
 
 )
-
-
-function good(newsId) {
-  $.post("./api/good.php", {
-    newsId
-  }, () => {
-    location.reload();
-  })
-}
 </script>
