@@ -17,19 +17,22 @@
     foreach ($rows as $row) {
 
     ?>
-      <tr>
-        <td>
-          <div class="title" data-id="<?= $row['id'] ?>"><?= $row['title'] ?></div>
-        </td>
-        <td>
-          <div><?= mb_substr($row['news'], 0, 25) ?> ...</div>
-          <div id="p<?= $row['id'] ?>" class="pop">
-            <h3 style="color:skyblue"><?= $row['title'] ?></h3>
-            <pre><?= $row['news'] ?></pre>
-          </div>
-        </td>
-        <td></td>
-      </tr>
+    <tr>
+      <td>
+        <div class="title" data-id="<?= $row['id'] ?>"><?= $row['title'] ?></div>
+      </td>
+      <td>
+        <div><?= mb_substr($row['news'], 0, 25) ?> ...</div>
+        <div id="p<?= $row['id'] ?>" class="pop">
+          <h3 style="color:skyblue"><?= $row['title'] ?></h3>
+          <pre><?= $row['news'] ?></pre>
+        </div>
+      </td>
+      <td>
+        <span id="g<?= $row['id'] ?>"><?= $row['good'] ?></span>個人說<img src="./icon/02B03.jpg" alt=""
+          style="width:25px">
+      </td>
+    </tr>
 
     <?php
 
@@ -63,16 +66,16 @@
 
 </fieldset>
 <script>
-  $(".title").hover(
-    function() {
-      // 先全部隱藏
-      $(".pop").hide();
-      let id = $(this).data('id');
+$(".title").hover(
+  function() {
+    // 先全部隱藏
+    $(".pop").hide();
+    let id = $(this).data('id');
 
-      // 顯示出對應的彈出視窗文章內容
-      $(`#p${id}`).show();
-    }
+    // 顯示出對應的彈出視窗文章內容
+    $(`#p${id}`).show();
+  }
 
 
-  )
+)
 </script>
