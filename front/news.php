@@ -31,9 +31,9 @@
           <?php
           if (isset($_SESSION['user'])) {
             if ($Log->count(['news_id' => $row['id'], 'acc' => $_SESSION['user']])) {
-              echo "<a href= ''>收回讚</a>";
+              echo "<a href= 'javascript:good({$row['id']})'>收回讚</a>";
             } else {
-              echo "<a href= ''>讚</a>";
+              echo "<a href= 'javascript:good({$row['id']})'>讚</a>";
             }
           }
           ?>
@@ -77,4 +77,13 @@
     let id = $(e.target).data('id');
     $(`#s${id},#a${id}`).toggle();
   })
+
+
+  function good(newsId) {
+    $.post("./api/good.php", {
+      newsId
+    }, () => {
+      location.reload();
+    })
+  }
 </script>
