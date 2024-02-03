@@ -2,7 +2,8 @@
 include_once "./api/db.php";
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -13,12 +14,24 @@ include_once "./api/db.php";
   <link href="./css/css.css" rel="stylesheet" type="text/css">
   <script src="./js/jquery-1.9.1.min.js"></script>
   <script src="./js/js.js"></script>
+
+  <style>
+  .pop {
+    background: rgba(51, 51, 51, 0.8);
+    color: #FFF;
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    display: none;
+    z-index: 9999;
+    overflow: auto;
+    padding: 10px;
+  }
+  </style>
 </head>
 
 <body>
-  <div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
-    <pre id="ssaa"></pre>
-  </div>
+
   <!-- 可直接刪掉 -->
   <!-- <iframe name="back" style="display:none;"></iframe> -->
   <div id="all">
@@ -28,7 +41,7 @@ include_once "./api/db.php";
       <a href="index.php" style='float:right'>回首頁</a>
     </div>
     <div id="title2" title="健康促進網-回首頁">
-      <img src="./icon/02B01.jpg" alt="">
+      <a href="index.php"><img src="./icon/02B01.jpg" alt=""></a>
     </div>
     <div id="mm">
       <div class="hal" id="lef">
@@ -48,19 +61,19 @@ include_once "./api/db.php";
 
 
             ?>
-              <a href="?do=login">會員登入</a>
+            <a href="?do=login">會員登入</a>
             <?php
 
             } else {
             ?>
-              歡迎,<?= $_SESSION['user'] ?>
-              <button onclick="location.href='./api/logout.php'">登出</button>
-              <?php
+            歡迎,<?= $_SESSION['user'] ?>
+            <button onclick="location.href='./api/logout.php'">登出</button>
+            <?php
 
 
               if ($_SESSION['user'] == 'admin') {
               ?>
-                <button onclick=" location.href='back.php'">管理</button>
+            <button onclick=" location.href='back.php'">管理</button>
             <?php
               }
             }
@@ -87,9 +100,9 @@ include_once "./api/db.php";
       </div>
     </div>
     <div id="bottom">
-      本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2012健康促進網社群平台 All Right Reserved
+      本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2024健康促進網社群平台 All Right Reserved
       <br>
-      服務信箱：health@test.labor.gov.tw<img src="./home_files/02B02.jpg" width="45">
+      服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
     </div>
   </div>
 
