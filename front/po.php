@@ -27,7 +27,7 @@
 
 <fieldset class="new-list">
   <legend>文章列表</legend>
-  <div class="list-items" style="display:none"></div>
+  <div class="list-items"></div>
   <div class="article"></div>
 </fieldset>
 
@@ -45,11 +45,10 @@
       type
     }, (list) => {
       $(".list-items").html(list);
-      // $(".article").hide()
-      // $(".list-items").show()
+      $(".article").hide()
+      $(".list-items").show()
 
-      // 跟上面一樣
-      $(".article,.list-items").toggle();
+
     })
   }
 
@@ -57,12 +56,11 @@
     $.get("./api/get_news.php", {
       id
     }, (news) => {
-      $(".article").text(news)
-      // $(".list-items").hide()
-      // $(".article").show()
+      $(".article").html(news)
+      $(".list-items").hide()
+      $(".article").show()
 
-      // 跟上面一樣
-      $(".article,.list-items").toggle();
+
     })
 
 
